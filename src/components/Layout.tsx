@@ -18,7 +18,8 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeTab, onTabChange
       case 'admin':
         return [
           { id: 'merchants', label: 'Merchant Approvals', icon: Users },
-          { id: 'overview', label: 'Platform Overview', icon: Store }
+          { id: 'overview', label: 'Platform Overview', icon: Store },
+          { id: 'admins', label: 'Admin Management', icon: Users }
         ];
       case 'merchant':
         return [

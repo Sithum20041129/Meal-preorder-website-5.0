@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { LoginForm } from './components/auth/LoginForm';
 import { RegisterForm } from './components/auth/RegisterForm';
 import { MerchantApprovals } from './components/admin/MerchantApprovals';
+import { AdminManagement } from './components/admin/AdminManagement';
 import { MerchantDashboard } from './components/merchant/MerchantDashboard';
 import { MenuManagement } from './components/merchant/MenuManagement';
 import { OrderManagement } from './components/merchant/OrderManagement';
@@ -59,6 +60,8 @@ function App() {
         switch (activeTab) {
           case 'merchants':
             return <MerchantApprovals />;
+          case 'admins':
+            return <AdminManagement />;
           case 'overview':
             return (
               <div className="bg-white rounded-lg shadow-md p-8 text-center">
