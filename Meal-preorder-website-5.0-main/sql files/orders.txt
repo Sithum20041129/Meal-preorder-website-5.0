@@ -1,0 +1,19 @@
+CREATE TABLE orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  customer_id INT NOT NULL,
+  merchant_id INT NOT NULL,
+  shop_id INT NOT NULL,
+  merchant_name VARCHAR(255),
+  customer_name VARCHAR(255),
+  customer_phone VARCHAR(20),
+  items JSON NOT NULL,
+  total DECIMAL(10,2) NOT NULL DEFAULT 0,
+  notes TEXT,
+  status ENUM('pending', 'confirmed', 'preparing', 'ready', 'completed', 'cancelled') DEFAULT 'pending',
+  estimated_pickup_time DATETIME NULL,
+  cancellation_reason VARCHAR(255),
+  rating INT CHECK (rating BETWEEN 1 AND 5),
+  review TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
