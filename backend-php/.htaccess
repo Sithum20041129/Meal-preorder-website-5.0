@@ -1,0 +1,36 @@
+RewriteEngine On
+
+# Handle CORS preflight requests
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# API Routes
+RewriteRule ^api/auth/register$ api/auth.php [L]
+RewriteRule ^api/auth/login$ api/auth.php [L]
+RewriteRule ^api/auth/me$ api/auth.php [L]
+
+RewriteRule ^api/admin/merchants/pending$ api/admin.php [L]
+RewriteRule ^api/admin/merchants/([0-9]+)/approval$ api/admin.php [L]
+RewriteRule ^api/admin/admins$ api/admin.php [L]
+RewriteRule ^api/admin/admins/([0-9]+)$ api/admin.php [L]
+RewriteRule ^api/admin/stats$ api/admin.php [L]
+
+RewriteRule ^api/shops$ api/shops.php [L]
+RewriteRule ^api/shops/merchant/my-shop$ api/shops.php [L]
+RewriteRule ^api/shops/merchant/settings$ api/shops.php [L]
+RewriteRule ^api/shops/merchant/meal-types/([0-9]+)$ api/shops.php [L]
+
+RewriteRule ^api/orders$ api/orders.php [L]
+RewriteRule ^api/orders/my-orders$ api/orders.php [L]
+RewriteRule ^api/orders/merchant/orders$ api/orders.php [L]
+RewriteRule ^api/orders/([0-9]+)$ api/orders.php [L]
+RewriteRule ^api/orders/([0-9]+)/status$ api/orders.php [L]
+
+# Deny access to sensitive files
+<Files "*.sql">
+    Deny from all
+</Files>
+
+<Files ".env">
+    Deny from all
+</Files>
